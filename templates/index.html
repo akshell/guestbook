@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Guestbook{% endblock %}
+
+{% block content %}
+  <h1>Guestbook</h1>
+  <form method="post" action=".">
+    Name:<br><input type="text" name="author"><br>
+    Title:<br><input type="text" name="title"><br>
+    Message:<br>
+    <textarea name="message" rows="5" cols="80"></textarea><br>
+    <input type="submit" value="Add">
+  </form>
+  <ul>
+    {% for entry in entries %}
+      <li><a href="{{ entry.id }}">{{ entry.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
